@@ -1,7 +1,7 @@
 {
   "account_sid" : "ACa1018332a56945147b6e9442899ebed5",
   "auth_token" : "465a3970007ae970966d300b90552bb8",
-  "twilio_phone" : "9718036517"
+  "twilio_phone" : "9718036517",
   "message" : "This is the default message to alert us that something is happend now",
-  "phone" : "9211807551"
+  "phone" : "+529211807551"
 }

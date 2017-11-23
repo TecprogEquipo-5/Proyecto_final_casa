@@ -1,6 +1,5 @@
 from tkinter import Tk, Label, PhotoImage
 from Views.Button import Buttons
-from Models.MessageManager import MessageManager
 
 
 class MainView(Tk):
@@ -22,15 +21,14 @@ class MainView(Tk):
     def width_size(cls):
         return cls.Constants.width
 
-    def __init__(self,send_handler = None):
+    def __init__(self):
         super().__init__()
-        self.__send_handler = send_handler
         self.title(self.Constants.title)
         self.geometry(self.size())
         self.minsize(self.width_size(), self.heigth_size())
         self.maxsize(self.width_size(), self.heigth_size())
-        self.messenger = MessageManager
         self.create_UI()
+
 
     def ui_background(self):
         try:
@@ -49,16 +47,7 @@ class MainView(Tk):
         self.ui_background()
         self.ui_windows()
 
-        self.__send_button = Label(self)
-        self.__send_button.configure(text="enviar")
-        self.__send_button.place(x=300,y=300)
-        self.__send_button.bind("<Button-1>", self.__did_tap_send)
 
-
-    def __did_tap_send(self,event):
-        if self.__send_handler is None:
-            return
-        self.__send_handler()
 
 
         

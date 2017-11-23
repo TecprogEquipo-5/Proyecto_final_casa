@@ -9,6 +9,6 @@ class JsonManager():
             infile = open(json_name + ".json",'r+')
             data = json.load(infile)
         except Exception:
-            print("no encontrado")
+            print("Archivo no encontrado, no sera posible enviar mensajes")
             return None
         return data

@@ -5,7 +5,7 @@ from Models.JsonManager import JsonManager
 class MessageManager():
 
     class Constants:
-        json_dir = "Assets/probe"
+        json_dir = "Assets/twilio_information"
 
     def __init__(self):
         message_variables = JsonManager.open_json_file(self.Constants.json_dir)
@@ -16,10 +16,9 @@ class MessageManager():
         auth_token = message_variables.get("auth_token", None)
         self.__twilio_phone = message_variables.get("twilio_phone", None)
         self.message = message_variables.get("message", None)
-        self.phone = message_variables.get("message", None)
-        #self.__client = Client(account_sid, auth_token)
-        self.__client = "hola"
+        self.phone = message_variables.get("phone", None)
+        self.__client = Client(account_sid, auth_token)
 
     def send_message(self):
-        #self.__client.messages.create( to=self.phone, from_= self.__twilio_phone, body=self.message)
-        print(self.__client)
+        self.__client.messages.create( to=self.phone, from_= self.__twilio_phone, body=self.message)
+        print("mensaje enviado")
