@@ -15,9 +15,9 @@ class Buttons(Label):
         super().__init__(parent)
         self.config(bg = self.Constants.off)
         self.__light_is_on = False
-        self.bind(self.Events.click, self.__turn_light())
+        self.bind(self.Events.click, self.__turn_light)
 
-    def __turn_light(self):
+    def __turn_light(self,event):
         if self.__light_is_on:
             self.config(bg = self.Constants.off)
             self.__light_is_on = False
