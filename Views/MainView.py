@@ -29,6 +29,7 @@ class MainView(Tk):
         self.maxsize(self.width_size(), self.heigth_size())
         self.create_UI()
 
+
     def ui_background(self):
         try:
             self.image_house = PhotoImage(file = self.Constants.image_dir)
@@ -41,9 +42,11 @@ class MainView(Tk):
         self.window1.config(height = 5, width = 8)
         self.window1.place(x=105, y =175)
 
+
     def create_UI(self):
         self.ui_background()
         self.ui_windows()
+
 
 
 
