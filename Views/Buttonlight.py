@@ -1,6 +1,6 @@
 from tkinter import Label
 
-class Buttons(Label):
+class Buttonslight(Label):
 
     class Constants:
         on = "#FEFFE3"
