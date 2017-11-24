@@ -1,6 +1,6 @@
-from tkinter import Tk, Label, PhotoImage
+from tkinter import Tk, Label, PhotoImage, Frame
 from Views.Buttonlight import Buttonslight
-
+from Views.SideView import SideView
 
 class MainView(Tk):
     class Constants:
@@ -8,6 +8,13 @@ class MainView(Tk):
         heigth = 500
         width = 1000
         image_dir = "Assets/casa1.gif"
+
+    class WindowsReferences:
+        windows_xy = [(106,174),(252,175),(391,172),(104,326)]
+        windows_dimentions = [(5,8),(3,3),(5,13),(5,7)]
+
+
+
 
     @classmethod
     def size(cls):
@@ -37,10 +44,14 @@ class MainView(Tk):
         except Exception:
             pass
 
+        self.side_view = Frame(self,bg="black")
+
     def ui_windows(self):
-        self.window1 = Buttons(self)
-        self.window1.config(height = 5, width = 8)
-        self.window1.place(x=105, y =175)
+        self.windows = []
+        for i in range (0,4):
+            self.windows.append(Buttonslight(self,i+1,self.WindowsReferences.windows_dimentions[i][0],self.WindowsReferences.windows_dimentions[i][1]))
+            self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
+
 
 
     def create_UI(self):
