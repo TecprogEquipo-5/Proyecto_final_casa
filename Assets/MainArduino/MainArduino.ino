@@ -14,7 +14,7 @@ void loop() {
 void serialEvent_servo() {
   char inChar = (char)Serial.read();
    if (inChar == 'o') {
-    for(int i = 0; i<=90; i++)
+    for(int i = 0; i<90; i++)
     {
       servoInstance.write(i);
       delay(20);

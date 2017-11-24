@@ -25,11 +25,11 @@ class Buttonslight(Label):
             self.config(bg = self.Constants.off)
             self.__light_is_on = False
             print(self.number_room)
-            self.__manager_arduino.send_instruction(1)
+            self.__manager_arduino.send_instruction("c")
         else:
             self.config(bg=self.Constants.on)
             self.__light_is_on = True
-            self.__manager_arduino.send_instruction(0)
+            self.__manager_arduino.send_instruction("o")
             print("ok")
 
 
