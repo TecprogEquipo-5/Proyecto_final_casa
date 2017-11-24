@@ -1,5 +1,7 @@
 from tkinter import Label
 
+from Models.Commands import Commands
+
 class Buttonslight(Label):
 
     class Constants:
@@ -20,17 +22,17 @@ class Buttonslight(Label):
         self.__light_is_on = False
         self.bind(self.Events.click, self.__turn_light)
 
+        self.__command = Commands()
+
     def __turn_light(self, event):
         if self.__light_is_on:
             self.config(bg = self.Constants.off)
             self.__light_is_on = False
-            print(self.number_room)
-            self.__manager_arduino.send_instruction("c")
+            self.__manager_arduino.send_instruction(self.__command.choise_command(self.__light_is_on,self.number_room))
         else:
             self.config(bg=self.Constants.on)
             self.__light_is_on = True
-            self.__manager_arduino.send_instruction("o")
-            print("ok")
+            self.__manager_arduino.send_instruction(self.__command.choise_command(self.__light_is_on, self.number_room))
 
 
     @classmethod
