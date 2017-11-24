@@ -13,6 +13,7 @@ class Buttonslight(Label):
 
     def __init__(self, parent, number_room,height,width, arduino):
         super().__init__(parent)
+        self.__manager_arduino = arduino
         self.config(bg = self.Constants.off)
         self.config(height = height, width =width)
         self.number_room= number_room
@@ -24,9 +25,11 @@ class Buttonslight(Label):
             self.config(bg = self.Constants.off)
             self.__light_is_on = False
             print(self.number_room)
+            self.__manager_arduino.send_instruction(1)
         else:
             self.config(bg=self.Constants.on)
             self.__light_is_on = True
+            self.__manager_arduino.send_instruction(0)
             print("ok")
 
 
