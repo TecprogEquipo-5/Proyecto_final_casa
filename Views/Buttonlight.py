@@ -11,7 +11,7 @@ class Buttonslight(Label):
         click = "<Button-1>"
         double_click = "<Double-1>"
 
-    def __init__(self, parent, number_room,height,width):
+    def __init__(self, parent, number_room,height,width, arduino):
         super().__init__(parent)
         self.config(bg = self.Constants.off)
         self.config(height = height, width =width)
