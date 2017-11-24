@@ -2,6 +2,6 @@
   "account_sid" : "XXXXXXXXXXXXXX",
   "auth_token" : "XXXXXXXXXXXXXX",
   "twilio_phone" : "XXXXXXXXXXXXXX",
-  "message" : "This is the default message to alert us that something is happend now"
-  "phone": "+XXXXXXXXXXXX"
+  "message" : "This is the default message to alert us that something is happend now",
+  "phone" : "+XXXXXXXXXXXX"
 }
