@@ -14,19 +14,16 @@ void loop() {
 void serialEvent_servo() {
   char inChar = (char)Serial.read();
    if (inChar == 'o') {
-    for(int i = 0; i<90; i++)
-    {
-      servoInstance.write(i);
-      delay(20);
-    }
+   
+      servoInstance.write(90);
+  
     }
    if (inChar == 'c') {
-       for(int i = 90; i>=0; i--)
-     {
-      servoInstance.write(i);
-      delay(20);
+     
+      servoInstance.write(0);
+     
      }
    }
-   }
+   
 
 
