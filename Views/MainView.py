@@ -28,8 +28,9 @@ class MainView(Tk):
     def width_size(cls):
         return cls.Constants.width
 
-    def __init__(self):
+    def __init__(self, arduino_controller):
         super().__init__()
+        self.__arduino = arduino_controller
         self.title(self.Constants.title)
         self.geometry(self.size())
         self.minsize(self.width_size(), self.heigth_size())
@@ -49,7 +50,7 @@ class MainView(Tk):
     def ui_windows(self):
         self.windows = []
         for i in range (0,4):
-            self.windows.append(Buttonslight(self,i+1,self.WindowsReferences.windows_dimentions[i][0],self.WindowsReferences.windows_dimentions[i][1]))
+            self.windows.append(Buttonslight(self,i+1,self.WindowsReferences.windows_dimentions[i][0],self.WindowsReferences.windows_dimentions[i][1], self.__arduino))
             self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
 
 
