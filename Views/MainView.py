@@ -35,16 +35,20 @@ class MainView(Tk):
         self.minsize(self.width_size(), self.heigth_size())
         self.maxsize(self.width_size(), self.heigth_size())
         self.create_UI()
+        self.side_view = SideView(self)
+        self.side_view.pack()
+        self.side_view.tkraise()
+
 
 
     def ui_background(self):
         try:
             self.image_house = PhotoImage(file = self.Constants.image_dir)
-            self.__back_ground = Label(self,image= self.image_house ).place(x=0, y=0).pack()
+            self.__back_ground = Label(self,image= self.image_house, )
+            self.__back_ground.place(x=0, y=0)
         except Exception:
             pass
 
-        self.side_view = Frame(self,bg="black")
 
     def ui_windows(self):
         self.windows = []
