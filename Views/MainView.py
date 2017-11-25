@@ -54,16 +54,7 @@ class MainView(Tk):
             self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
 
 
-
-
     def create_UI(self):
         self.ui_background()
         self.ui_windows()
-
-
-
-
-
-        
-
 

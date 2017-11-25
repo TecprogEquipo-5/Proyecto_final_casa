@@ -5,8 +5,8 @@ class SideView(Frame):
     class Constants:
         center = N + W + S + E
 
-    def __init__(self, parent):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
 
         self.__label = Label(self)
 
@@ -16,12 +16,14 @@ class SideView(Frame):
         self.grid_columnconfigure(0, weight=True)
         self.grid_columnconfigure(0, weight=True)
 
-        self.update_temperature("0")
+        self.update_temperature_text("0")
 
         self.build()
 
     def build(self):
         pass
 
-    def update_temperature(self, int_temp):
-        pass
+    def update_temperature_text(self, int_temp):
+        text = str(int_temp)
+        text = 'Temperature: ' + text + "º"
+        self.__label.configure(text = text, font = ('Arial',12))
