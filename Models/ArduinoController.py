@@ -25,5 +25,8 @@ class ArduinoController():
         self.__arduino.write(value)
 
     def read_arduino(self):
-        data = self.__arduino.readline().decode()
-        return data
+        try:
+            data = self.__arduino.readline().decode()
+            return data
+        except Exception:
+            pass
