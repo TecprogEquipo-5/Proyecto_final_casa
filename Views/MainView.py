@@ -8,6 +8,7 @@ class MainView(Tk):
         heigth = 500
         width = 1000
         image_dir = "Assets/casa1.gif"
+        number_of_windows = 4
 
     class WindowsReferences:
         windows_xy = [(106,174),(252,175),(391,172),(104,326)]
@@ -36,7 +37,7 @@ class MainView(Tk):
         self.maxsize(self.width_size(), self.heigth_size())
         self.create_UI()
         self.side_view = SideView(self)
-        self.side_view.pack()
+        self.side_view.place(x = 702,y =2)
         self.side_view.tkraise()
 
 
@@ -52,7 +53,7 @@ class MainView(Tk):
 
     def ui_windows(self):
         self.windows = []
-        for i in range (0,4):
+        for i in range (0,self.Constants.number_of_windows):
             self.windows.append(Buttonslight(self,i+1,self.WindowsReferences.windows_dimentions[i][0],self.WindowsReferences.windows_dimentions[i][1]))
             self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
 
