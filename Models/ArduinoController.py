@@ -3,7 +3,7 @@ import serial
 class ArduinoController():
 
     class Constants:
-        port = 'COM7'
+        port = '/dev/cu.usbmodem1421'
         baudio = 115200
 
     def __init__(self):
@@ -17,5 +17,13 @@ class ArduinoController():
 
 
     def send_instruction(self,instruction):
-            value = str(instruction).encode('ascii')
-            self.__arduino.write(value)
+        value = str(instruction).encode('ascii')
+        self.__arduino.write(value)
+
+    def sensor_instruction(self,instruction):
+        value = str(instruction).encode('ascii')
+        self.__arduino.write(value)
+
+    def read_arduino(self):
+        data = self.__arduino.readline().decode()
+        return data
