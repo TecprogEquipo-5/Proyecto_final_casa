@@ -12,6 +12,7 @@ class SideView(Frame):
         self.build()
 
     def build(self):
+        self.config(bg = "blue")
         self.side_label = Label()
 
 
