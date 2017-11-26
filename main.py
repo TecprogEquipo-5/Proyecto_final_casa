@@ -11,7 +11,10 @@ class MainApp():
         self.__master.mainloop()
 
     def closing(self):
-        self.arduino_controller.on_closing()
+        try:
+            self.arduino_controller.on_closing()
+        except Exception:
+            pass
         self.__master.destroy()
 
 if __name__ == "__main__":
