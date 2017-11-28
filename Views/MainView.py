@@ -40,6 +40,7 @@ class MainView(Tk):
         self.side_view.place(x=702, y=2)
         self.side_view.tkraise()
 
+
     def ui_background(self):
         try:
             self.image_house = PhotoImage(file = self.Constants.image_dir)
@@ -56,16 +57,11 @@ class MainView(Tk):
             self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
 
 
-
-
     def create_UI(self):
         self.ui_background()
         self.ui_windows()
 
-
-
-
-
-        
+    def show_temperature(self, int_temperature1, int_temperature2):
+        self.side_view.update_temperature_text(str(int_temperature1), str(int_temperature2))
 
 
