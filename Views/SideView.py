@@ -22,8 +22,6 @@ class SideView(Frame):
     def build(self):
         self.config(bg="blue")
 
-    def update_temperature_text(self, int_temp):
-        text = str(int_temp)
-        text = 'Temperature: ' + text + "º"
-        print(text)
+    def update_temperature_text(self, text_temp1, text_temp2):
+        text = 'Temperature 1: ' + text_temp1 + "º" + "\n" + 'Temperature 2: ' + text_temp2 + "º"
         self.__label.configure(text = text, font = ('Arial',12))

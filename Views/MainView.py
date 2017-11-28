@@ -61,7 +61,7 @@ class MainView(Tk):
         self.ui_background()
         self.ui_windows()
 
-    def show_temperature(self, int_temperature):
-        self.side_view.update_temperature_text(str(int_temperature))
+    def show_temperature(self, int_temperature1, int_temperature2):
+        self.side_view.update_temperature_text(str(int_temperature1), str(int_temperature2))
 
 

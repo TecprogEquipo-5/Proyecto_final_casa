@@ -15,14 +15,22 @@ class MainApp():
 
     def __update_temperature(self):
         sensor_data = self.arduino_controller.read_arduino()
-        self.bits_temperature = self.arduino_controller.handle_data(sensor_data, Commands.Constants.temp_sensor)
-        self.__temp_controller.handle_fan(self.bits_temperature)
 
-        self.int_temperature = self.__temp_controller.handle_temperature(self.bits_temperature)
+        self.bits_temperature_sensor1 = self.arduino_controller.handle_data(sensor_data, Commands.Constants.temp_sensor1)
+        self.bits_temperature_sensor2 = self.arduino_controller.handle_data(sensor_data, Commands.Constants.temp_sensor2)
 
-        self.__master.show_temperature(self.int_temperature)
-        self.__master.after(1, self.__update_temperature())
+        if self.bits_temperature_sensor1 != None or self.bits_temperature_sensor2 != None:
 
+            self.__temp_controller.handle_fan(self.bits_temperature_sensor1, Commands.Constants.temp_sensor1)
+            self.__temp_controller.handle_fan(self.bits_temperature_sensor2, Commands.Constants.temp_sensor2)
+
+            self.int_temperature1 = self.__temp_controller.handle_temperature(self.bits_temperature_sensor1)
+            self.int_temperature2 = self.__temp_controller.handle_temperature(self.bits_temperature_sensor2)
+
+            self.__master.show_temperature(self.int_temperature1, self.int_temperature2)
+
+
+        self.__master.after(1, self.__update_temperature)
 
 
     def run(self):

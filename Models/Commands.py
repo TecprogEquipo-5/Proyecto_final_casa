@@ -3,12 +3,13 @@ class Commands():
 
     class Constants:
 
-        on_commands = ['A','B', 'C', 'D']
-        off_commands = ['a','b', 'c', 'd']
-        fan_on = 'F'
-        fan_off = 'f'
-        temp_sensor = 0
-        move_sensor = 1
+        on_commands = ['A', 'B', 'C', 'D']
+        off_commands = ['a', 'b', 'c', 'd']
+        fan_on = ['F', 'G']
+        fan_off = ['f', 'g']
+        temp_sensor1 = 0
+        temp_sensor2 = 1
+        move_sensor = 2
 
 
     @classmethod

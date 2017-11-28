@@ -1,23 +1,26 @@
 #include <Servo.h>
 Servo servoInstance;
+int ServoPIN = 5;
 int ledPIN_1 = 11;
 int ledPIN_2 = 10;
 int ledPIN_3 = 9;
 int ledPIN_4 = 8;
 int fanPIN_1 = 13;
+int fanPIN_2 = 12;
 
 int sensorTemperaturePIN = A0;
 int sensorValueTemp = 0;
 
-int sensorMovePIN = A1;
+int sensorTemperature2PIN = A1;
+int sensorValueTemp2 = 0;
+
+int sensorMovePIN = A2;
 int sensorValueMove = 0;
 
 
 
-
-
 void setup() {
- servoInstance.attach(5);
+ servoInstance.attach(ServoPIN);
  Serial.begin(115200);
  
   pinMode(ledPIN_1, OUTPUT);
@@ -35,17 +38,23 @@ void setup() {
   pinMode(fanPIN_1, OUTPUT);
   digitalWrite(fanPIN_1, LOW);
 
+  pinMode(fanPIN_2, OUTPUT);
+  digitalWrite(fanPIN_2, LOW);
 }
 
 void loop() {
   int sensorValueTemp = analogRead(sensorTemperaturePIN);
+  int sensorValueTemp2 = analogRead(sensorTemperature2PIN);
   int sensorValueMove = analogRead(sensorMovePIN);
-  sendData(sensorValueTemp, sensorValueMove);
+
+  sendData(sensorValueTemp, sensorValueTemp2, sensorValueMove);
   delay(50);
   }
 
-void sendData(int value_temp, int value_move) {
+void sendData(int value_temp, int value_temp2, int value_move) {
   Serial.print(value_temp);
+  Serial.print(",");
+  Serial.print(value_temp2);
   Serial.print(",");
   Serial.println(value_move);
 }
@@ -99,6 +108,13 @@ void serialEvent() {
 
   if(inChar == 'f'){
         digitalWrite(fanPIN_1, LOW);
+  }
+   if(inChar == 'G'){
+        digitalWrite(fanPIN_2, HIGH);
+  }
+
+  if(inChar == 'g'){
+        digitalWrite(fanPIN_2, LOW);
   }
 }
 
