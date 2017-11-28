@@ -14,5 +14,5 @@ class TemperatureController():
 
     def handle_temperature(self, bits_temp):
         value = int(bits_temp)
-        temperature = (value * 150)/1024;
+        temperature = (value * 150)/1024
         return int(temperature)

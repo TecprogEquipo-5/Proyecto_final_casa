@@ -1,16 +1,21 @@
 from Views.MainView import MainView
-
+import time
 from Models.ArduinoController import ArduinoController
 from Models.TemperatureController import TemperatureController
 from Models.Commands import Commands
 
 class MainApp():
     def __init__(self):
-        self.arduino_controller = ArduinoController()
+        self.ready_to_star = True
+        try:
+            self.arduino_controller = ArduinoController()
+        except Exception:
+            self.ready_to_star = False
+            return
         self.__master = MainView(self.arduino_controller)
         self.__master.protocol("WM_DELETE_WINDOW", self.closing)
         self.__temp_controller = TemperatureController(self.arduino_controller)
-        self.__update_temperature()
+
 
 
     def __update_temperature(self):
@@ -21,12 +26,16 @@ class MainApp():
         self.int_temperature = self.__temp_controller.handle_temperature(self.bits_temperature)
 
         self.__master.show_temperature(self.int_temperature)
-        self.__master.after(1, self.__update_temperature())
+        self.__master.after(50, self.__update_temperature())
 
 
 
     def run(self):
-        self.__master.mainloop()
+        if self.ready_to_star != False:
+            self.__master.mainloop()
+
+        else:
+            print("Coneta el arduino porfavor")
 
     def closing(self):
         try:
