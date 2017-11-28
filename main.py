@@ -11,7 +11,7 @@ class MainApp():
         self.__master.protocol("WM_DELETE_WINDOW", self.closing)
         self.__temp_controller = TemperatureController(self.arduino_controller)
         self.__update_temperature()
-        #self.__recursividad()
+
 
     def __update_temperature(self):
         sensor_data = self.arduino_controller.read_arduino()
@@ -21,12 +21,9 @@ class MainApp():
         self.int_temperature = self.__temp_controller.handle_temperature(self.bits_temperature)
 
         self.__master.show_temperature(self.int_temperature)
-        #self.__master.after(1, self.__update_temperature())
-        #self.__update_temperature()
+        self.__master.after(1, self.__update_temperature())
 
-    def __recursividad(self):
-        self.__update_temperature()
-        self.__recursividad()
+
 
     def run(self):
         self.__master.mainloop()

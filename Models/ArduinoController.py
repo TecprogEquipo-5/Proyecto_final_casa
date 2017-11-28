@@ -20,13 +20,15 @@ class ArduinoController():
         self.__arduino.write(value)
 
     def handle_data(self, data, sensor_type):
-        clean_values = data.strip(' \n\r').split(",")
-        return clean_values[sensor_type]
+        try:
+            clean_values = data.strip(' \n\r').split(",")
+            return clean_values[sensor_type]
+        except Exception:
+            pass
 
     def read_arduino(self):
         try:
             data = self.__arduino.readline().decode()
-            print(data)
             return data
         except Exception:
             pass
