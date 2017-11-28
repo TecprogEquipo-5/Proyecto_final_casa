@@ -36,7 +36,7 @@ class MainView(Tk):
         self.minsize(self.width_size(), self.heigth_size())
         self.maxsize(self.width_size(), self.heigth_size())
         self.create_UI()
-        self.side_view = SideView(self)
+        self.side_view = SideView(self, self.__arduino)
         self.side_view.place(x=702, y=2)
         self.side_view.tkraise()
 

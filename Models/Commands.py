@@ -3,8 +3,8 @@ class Commands():
 
     class Constants:
 
-        on_commands = ['A','B', 'C', 'D']
-        off_commands = ['a','b', 'c', 'd']
+        on_commands = ['A','B', 'C', 'D','T']
+        off_commands = ['a','b', 'c', 'd','t']
 
     @classmethod
     def choise_command(cls, state, number_room):
