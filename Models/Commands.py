@@ -5,6 +5,11 @@ class Commands():
 
         on_commands = ['A','B', 'C', 'D']
         off_commands = ['a','b', 'c', 'd']
+        fan_on = 'F'
+        fan_off = 'f'
+        temp_sensor = 0
+        move_sensor = 1
+
 
     @classmethod
     def choise_command(cls, state, number_room):

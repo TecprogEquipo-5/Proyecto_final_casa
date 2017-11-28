@@ -1,19 +1,16 @@
+from Models.Commands import Commands
 class TemperatureController():
-    def __init__(self):
-        super().__init__()
-        self.__state = 'f'
-
-
-    def handle_data(self, data):
-        clean_values = data.strip(' \n\r').split(",")
-        return clean_values[0]
+    def __init__(self, arduino):
+        self.arduino_controller = arduino
+        self.__is_fan_on =  False;
 
     def handle_fan(self, data):
-        if int(data) > 200:
-            self.__state = 'F'
-        else:
-            self.__state = 'f'
-        return self.__state
+        if int(data) >= 200 and self.__is_fan_on == False:
+            self.arduino_controller.send_instruction(Commands.Constants.fan_on)
+            self.__is_fan_on = True
+        elif int(data) < 200 and self.__is_fan_on == True:
+            self.arduino_controller.send_instruction(Commands.Constants.fan_off)
+            self.__is_fan_on = False
 
     def handle_temperature(self, bits_temp):
         value = int(bits_temp)

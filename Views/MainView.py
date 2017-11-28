@@ -36,6 +36,9 @@ class MainView(Tk):
         self.minsize(self.width_size(), self.heigth_size())
         self.maxsize(self.width_size(), self.heigth_size())
         self.create_UI()
+        self.side_view = SideView(self)
+        self.side_view.place(x=702, y=2)
+        self.side_view.tkraise()
 
 
     def ui_background(self):
@@ -57,4 +60,8 @@ class MainView(Tk):
     def create_UI(self):
         self.ui_background()
         self.ui_windows()
+
+    def show_temperature(self, int_temperature):
+        self.side_view.update_temperature_text(str(int_temperature))
+
 

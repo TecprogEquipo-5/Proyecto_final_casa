@@ -6,9 +6,14 @@ int ledPIN_3 = 9;
 int ledPIN_4 = 8;
 int fanPIN_1 = 13;
 
-int sensorPin = A0;
-int sensorValue = 0;
-int mapValue = 0;
+int sensorTemperaturePIN = A0;
+int sensorValueTemp = 0;
+
+int sensorMovePIN = A1;
+int sensorValueMove = 0;
+
+
+
 
 
 void setup() {
@@ -33,16 +38,16 @@ void setup() {
 }
 
 void loop() {
-  int sensorValue = analogRead(sensorPin);
-  sendData(sensorValue);
+  int sensorValueTemp = analogRead(sensorTemperaturePIN);
+  int sensorValueMove = analogRead(sensorMovePIN);
+  sendData(sensorValueTemp, sensorValueMove);
   delay(50);
   }
 
-void sendData(int value) {
-  mapValue = map(value, 0, 1023, 0, 400);
-  Serial.print(value);
+void sendData(int value_temp, int value_move) {
+  Serial.print(value_temp);
   Serial.print(",");
-  Serial.println(mapValue);
+  Serial.println(value_move);
 }
 
 void serialEvent() {
