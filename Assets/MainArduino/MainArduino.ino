@@ -124,6 +124,16 @@ void serialEvent() {
         digitalWrite(buzzerPIN, HIGH);
         
   }
+<<<<<<< HEAD
+=======
+
+  if(inChar == 'z'){
+        digitalWrite(buzzerPIN, LOW);
+  }
+}
+
+   
+>>>>>>> f0678ff1c515523d7caa9236c565c71b65bb9e2b
 
   if(inChar == 'z'){
         digitalWrite(buzzerPIN, LOW);
