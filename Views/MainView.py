@@ -10,7 +10,7 @@ class MainView(Tk):
         image_dir = "Assets/casa1.gif"
 
     class WindowsReferences:
-        windows_xy = [(92,166),(238,164),(376,160),(87,317)]
+        windows_xy = [(92,166),(238,164),(376,160),(87,317),(334,345)]
 
 
 
@@ -51,10 +51,9 @@ class MainView(Tk):
 
     def ui_windows(self):
         self.windows = []
-        for i in range (0,4):
+        for i in range (0,5):
             self.windows.append(Buttonslight(self,i+1, self.__arduino))
             self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
-
 
     def create_UI(self):
         self.ui_background()
