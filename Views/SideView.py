@@ -13,7 +13,7 @@ class SideView(Frame):
         self.build()
 
         self.__label = Label(self)
-        self.__label.grid(row = 0, column = 2, sticky = self.Constants.center)
+        self.__label.grid(row = 0, column = 1, sticky = self.Constants.center)
 
         self.grid_rowconfigure(0, weight=True)
         self.grid_columnconfigure(0, weight=True)

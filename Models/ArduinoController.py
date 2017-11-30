@@ -3,7 +3,7 @@ import serial
 class ArduinoController():
 
     class Constants:
-        port = 'COM7'
+        port = '/dev/cu.usbmodem1411'
         baudio = 115200
 
     def __init__(self):
