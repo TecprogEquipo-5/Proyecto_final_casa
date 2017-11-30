@@ -14,8 +14,6 @@ class MainView(Tk):
         windows_dimentions = [(5,8),(3,3),(5,13),(5,7)]
 
 
-
-
     @classmethod
     def size(cls):
         return "{}x{}".format(cls.Constants.width, cls.Constants.heigth)
@@ -36,9 +34,10 @@ class MainView(Tk):
         self.minsize(self.width_size(), self.heigth_size())
         self.maxsize(self.width_size(), self.heigth_size())
         self.create_UI()
-        self.side_view = SideView(self, self.__arduino)
+        self.side_view = SideView(self, self.__arduino,self.windows)
         self.side_view.place(x=702, y=2)
         self.side_view.tkraise()
+
 
     def ui_background(self):
         try:
@@ -56,11 +55,12 @@ class MainView(Tk):
             self.windows[i].place(x= self.WindowsReferences.windows_xy[i][0] , y =self.WindowsReferences.windows_xy[i][1])
 
 
-
-
     def create_UI(self):
         self.ui_background()
         self.ui_windows()
+
+
+
 
 
 

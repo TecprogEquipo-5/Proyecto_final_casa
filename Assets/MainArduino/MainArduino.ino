@@ -57,14 +57,13 @@ void serialEvent() {
   if(inChar == 'c'){
         digitalWrite(ledPIN_3, LOW);
   }
-  if(inChar == 'D'){
+     if(inChar == 'D'){
         digitalWrite(ledPIN_4, HIGH);
   }
   if(inChar == 'd'){
         digitalWrite(ledPIN_4, LOW);
   }
-  //para  todas las luces al mismo tiempo
-  if(inChar == 'T'){
+   if(inChar == 'T'){
         digitalWrite(ledPIN_4, HIGH);
         digitalWrite(ledPIN_3, HIGH);
         digitalWrite(ledPIN_2, HIGH);

@@ -3,7 +3,7 @@ import serial
 class ArduinoController():
 
     class Constants:
-        port = 'COM8'
+        port = 'COM7'
         baudio = 115200
 
     def __init__(self):
