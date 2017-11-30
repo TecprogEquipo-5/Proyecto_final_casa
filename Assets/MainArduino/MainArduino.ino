@@ -7,6 +7,7 @@ int ledPIN_3 = 9;
 int ledPIN_4 = 8;
 int fanPIN_1 = 13;
 int fanPIN_2 = 12;
+int buzzerPIN = 2;
 
 int sensorTemperaturePIN = A0;
 int sensorValueTemp = 0;
@@ -40,6 +41,9 @@ void setup() {
 
   pinMode(fanPIN_2, OUTPUT);
   digitalWrite(fanPIN_2, LOW);
+
+  pinMode(buzzerPIN, OUTPUT);
+  digitalWrite(buzzerPIN, LOW);
 }
 
 void loop() {
@@ -115,6 +119,14 @@ void serialEvent() {
 
   if(inChar == 'g'){
         digitalWrite(fanPIN_2, LOW);
+  }
+   if(inChar == 'Z'){
+        digitalWrite(buzzerPIN, HIGH);
+        
+  }
+
+  if(inChar == 'z'){
+        digitalWrite(buzzerPIN, LOW);
   }
 }
 
