@@ -10,7 +10,7 @@ class MainView(Tk):
         image_dir = "Assets/casa1.gif"
 
     class WindowsReferences:
-        windows_xy = [(90,174),(242,175),(381,172),(90,326)]
+        windows_xy = [(92,166),(238,164),(376,160),(87,317)]
 
 
 

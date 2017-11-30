@@ -10,6 +10,8 @@ class Commands():
         temp_sensor1 = 0
         temp_sensor2 = 1
         move_sensor = 2
+        ports = ['/dev/cu.usbmodem1411','/dev/cu.usbmodem1421',"COM7","COM5"]
+
     class References:
         references = [("Assets/w1of.gif","Assets/w1o.gif"),("Assets/w2of.gif","Assets/w2o.gif"),("Assets/w3of.gif","Assets/w3o.gif"),("Assets/w4of.gif","Assets/w4o.gif")]
 

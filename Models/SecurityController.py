@@ -1,5 +1,5 @@
 from Models.Commands import Commands
-#from Models.MessageManager import MessageManager
+from Models.MessageManager import MessageManager
 
 class SecurityController():
     class Constants:

@@ -17,6 +17,7 @@ class Buttonslight(Label):
         self.img_on = PhotoImage(file = Commands.References.references[number_room-1][1])
         self.config(image = self.img_off)
         self.number_room= number_room
+        self.config(bd = 0)
         self.__light_is_on = False
         self.bind(self.Events.click, self.__turn_light)
 
