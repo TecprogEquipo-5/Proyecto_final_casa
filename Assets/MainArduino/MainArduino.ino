@@ -129,7 +129,3 @@ void serialEvent() {
         digitalWrite(buzzerPIN, LOW);
   }
 }
-
-   
-
-

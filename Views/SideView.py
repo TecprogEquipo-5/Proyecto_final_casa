@@ -6,22 +6,23 @@ class SideView(Frame):
         width = 298
         height = 1000
         center = N + W + S + E
+        font = 'Apple Chancery'
+        font_size = 20
+
+
 
     def __init__(self, parent):
-        super().__init__(parent)
+        super().__init__()
         self.configure(width=self.Constants.width, height=self.Constants.height)
+        self.__label = Label(self,width =25, height=10 )
+
         self.build()
 
-        self.__label = Label(self)
-        self.__label.grid(row = 0, column = 2, sticky = self.Constants.center)
-
-        self.grid_rowconfigure(0, weight=True)
-        self.grid_columnconfigure(0, weight=True)
-        self.grid_columnconfigure(0, weight=True)
 
     def build(self):
-        self.config(bg="blue")
+        self.__label.place(x=20,y=0)
 
     def update_temperature_text(self, text_temp1, text_temp2):
-        text = 'Temperature 1: ' + text_temp1 + "º" + "\n" + 'Temperature 2: ' + text_temp2 + "º"
-        self.__label.configure(text = text, font = ('Arial',12))
+        text = '·Temperatura cuarto 1: ' + text_temp1 + "º" + "\n" + '·Temperatura cuarto 2: ' + text_temp2 + "º"+ "\n" + "Sistema de seguridad"
+        self.__label.configure(text = text, font = (self.Constants.font,self.Constants.font_size))
+

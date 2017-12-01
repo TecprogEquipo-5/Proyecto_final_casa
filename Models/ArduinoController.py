@@ -1,13 +1,13 @@
 import serial
-
+from Models.Commands import Commands
 class ArduinoController():
 
     class Constants:
-        port = 'COM7'
         baudio = 115200
 
-    def __init__(self):
-        self.__arduino = serial.Serial(self.Constants.port,self.Constants.baudio)
+    def __init__(self,port):
+        self.__arduino = serial.Serial(port,self.Constants.baudio)
+
 
 
     def on_closing(self):
