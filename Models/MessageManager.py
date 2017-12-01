@@ -21,4 +21,3 @@ class MessageManager():
 
     def send_message(self):
         self.__client.messages.create( to=self.phone, from_= self.__twilio_phone, body=self.message)
-        print("mensaje enviado")

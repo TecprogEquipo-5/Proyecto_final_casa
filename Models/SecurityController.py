@@ -30,8 +30,6 @@ class SecurityController():
                 if self.alerts_active == False:
                     self.arduino_controller.send_instruction(Commands.Constants.on_commands[self.Constants.on_off])
                     self.__msn_manager.send_message()
-                    print(data)
-                    print("mensaje enviado")
                     self.alerts_active = True
                     self.alarm()
             else:
@@ -51,11 +49,11 @@ class SecurityController():
         if self.__system_on:
             self.__system_on = False
             self.button_security.config(image = self.off)
-            print("sistema apagado")
+
         else:
             self.__system_on = True
             self.button_security.config(image=self.on)
-            print("sistema encendido")
+
 
     def make_button(self):
         self.button_security.config(image = self.off)
