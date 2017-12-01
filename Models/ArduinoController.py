@@ -14,7 +14,6 @@ class ArduinoController():
         self.__arduino.close()
 
 
-
     def send_instruction(self,instruction):
         value = str(instruction).encode('ascii')
         self.__arduino.write(value)
