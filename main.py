@@ -22,11 +22,11 @@ class MainApp():
         if self.ready_to_start == False:
             return
 
+
         self.__master = MainView(self.arduino_controller)
+        self.__security_controller = SecurityController(self.__master, self.arduino_controller, self.__master.side_view)
         self.__master.protocol(self.Constants.protocolo_off, self.closing)
         self.__temp_controller = TemperatureController( self.arduino_controller)
-        #crea la variable de SecurityController
-        self.__security_controller = SecurityController(self.__master,self.arduino_controller)
         self.__update_temperature()
 
 

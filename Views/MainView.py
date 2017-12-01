@@ -47,8 +47,6 @@ class MainView(Tk):
         except Exception:
             pass
 
-        self.side_view = Frame(self,bg="black")
-
     def ui_windows(self):
         self.windows = []
         for i in range (0,5):

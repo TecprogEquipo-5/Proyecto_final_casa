@@ -8,7 +8,6 @@ class Buttonslight(Label):
 
     class Events:
         click = "<Button-1>"
-        double_click = "<Double-1>"
 
     def __init__(self, parent, number_room, arduino):
         super().__init__(parent)
