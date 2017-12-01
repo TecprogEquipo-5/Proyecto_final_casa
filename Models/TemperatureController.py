@@ -1,5 +1,6 @@
 from Models.Commands import Commands
 class TemperatureController():
+
     def __init__(self, arduino):
         self.arduino_controller = arduino
         self.__status_fans = [False, False]

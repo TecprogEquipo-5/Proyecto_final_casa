@@ -8,18 +8,25 @@ from Models.Commands import Commands
 class MainApp():
     class Constants:
         protocolo_off = "WM_DELETE_WINDOW"
+
     def __init__(self):
         self.ready_to_start = True
-        try:
-            self.arduino_controller = ArduinoController()
-        except Exception:
-            self.ready_to_start = False
+
+        for port in Commands.Constants.ports:
+            try:
+                self.arduino_controller = ArduinoController(port)
+                self.ready_to_start = True
+                break
+            except Exception:
+                self.ready_to_start = False
+        if self.ready_to_start == False:
             return
+
+
         self.__master = MainView(self.arduino_controller)
+        self.__security_controller = SecurityController(self.__master, self.arduino_controller, self.__master.side_view)
         self.__master.protocol(self.Constants.protocolo_off, self.closing)
         self.__temp_controller = TemperatureController( self.arduino_controller)
-        #crea la variable de SecurityController
-        self.__security_controller = SecurityController(self.__master,self.arduino_controller)
         self.__update_temperature()
 
 
