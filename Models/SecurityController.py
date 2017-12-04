@@ -26,10 +26,14 @@ class SecurityController():
 
     def is_move(self, data):
         try:
-            if int(data) >= 850 and self.__system_on == True :
+            if int(data) >= 500 and self.__system_on == True :
                 if self.alerts_active == False:
                     self.arduino_controller.send_instruction(Commands.Constants.on_commands[self.Constants.on_off])
-                    self.__msn_manager.send_message()
+                    try:
+                     self.__msn_manager.send_message()
+                    except Exception:
+                        pass
+                    print("mensaje enviado")
                     self.alerts_active = True
                     self.alarm()
             else:

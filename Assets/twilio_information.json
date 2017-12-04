@@ -1,7 +1,7 @@
 {
-  "account_sid" : "ACa1018332a56945147b6e9442899ebed5",
-  "auth_token" : "465a3970007ae970966d300b90552bb8",
-  "twilio_phone" : "9718036517",
+  "account_sid" : "********************",
+  "auth_token" : "********************",
+  "twilio_phone" : "********************",
   "message" : "WARGNING: someone is trying to steal your house!!!",
-  "phone" : "+529211807551"
+  "phone" : "********************"
 }
